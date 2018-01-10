@@ -11,6 +11,7 @@ import com.umeng.message.PushAgent;
  */
 
 public class MyApplication extends Application {
+    public static String device="";
     @Override
     public void onCreate() {
         super.onCreate();
@@ -22,6 +23,7 @@ public class MyApplication extends Application {
             public void onSuccess(String deviceToken) {
                 //注册成功会返回device token
                 Log.i("deviceToken-------",deviceToken);
+                device=deviceToken;
             }
 
             @Override
@@ -29,6 +31,8 @@ public class MyApplication extends Application {
 
             }
         });
+        //完全自定义消息设置
+        mPushAgent.setPushIntentServiceClass(MyPushIntentService.class);
         //PushSDK 日志关闭
         //mPushAgent.setDebugMode(false);
 

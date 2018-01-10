@@ -29,6 +29,7 @@
             android:name="UMENG_CHANNEL"
             android:value="Channel ID" >
         </meta-data>
+        <service android:name=".MyPushIntentService"/>
     </application>
 
 </manifest>
